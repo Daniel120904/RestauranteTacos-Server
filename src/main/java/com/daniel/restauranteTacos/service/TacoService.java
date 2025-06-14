@@ -1,6 +1,6 @@
 package com.daniel.restauranteTacos.service;
 
-import com.daniel.restauranteTacos.model.decorator.Taco;
+import com.daniel.restauranteTacos.model.TacoModel;
 import com.daniel.restauranteTacos.repository.TacoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +14,15 @@ public class TacoService {
     @Autowired
     private TacoRepository tacoRepository;
 
-    public List<Taco> listarTodos() {
+    public List<TacoModel> listarTodos() {
         return tacoRepository.findAll();
     }
 
-    public Optional<Taco> buscarPorId(String id) {
+    public Optional<TacoModel> buscarPorId(String id) {
         return tacoRepository.findById(id);
     }
 
-    public Taco salvar(Taco taco) {
+    public TacoModel salvar(TacoModel taco) {
         return tacoRepository.save(taco);
     }
 

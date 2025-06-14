@@ -1,27 +1,26 @@
-package com.daniel.restauranteTacos.model.decorator;
+package com.daniel.restauranteTacos.model;
 
-import com.daniel.restauranteTacos.model.ItemPedido;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "tacos")
+@Document(collection = "acompanhamentos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class Taco implements ItemPedido {
+public class AcompanhamentoModel implements ItemPedido {
 
     @Id
     private String id;
 
-    private String descricao;
+    private String nome;
     private double preco;
 
     @Override
     public String getDescricao() {
-        return descricao;
+        return nome;
     }
 
     @Override

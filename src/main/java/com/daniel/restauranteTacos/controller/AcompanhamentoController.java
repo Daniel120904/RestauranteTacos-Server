@@ -1,5 +1,4 @@
 package com.daniel.restauranteTacos.controller;
 
-public class PedidoController {
-
+public class AcompanhamentoController {
 }

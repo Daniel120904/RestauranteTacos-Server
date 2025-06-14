@@ -21,11 +21,12 @@ public class PedidoModel {
     private List<ItemPedido> itens;
     private double valorTotal;
 
-    // Método para calcular o valor total
+    private PagamentoModel pagamento; // 🔥 Adicionando o pagamento no pedido
+
     public void calcularValorTotal() {
         this.valorTotal = itens.stream()
                 .mapToDouble(ItemPedido::getPreco)
                 .sum();
     }
-
 }
+
