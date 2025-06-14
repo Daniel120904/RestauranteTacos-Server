@@ -10,19 +10,4 @@ import java.util.List;
 @RequestMapping("/api/tacos")
 public class TacoController {
 
-    private final TacoService tacoService;
-
-    public TacoController(TacoService tacoService) {
-        this.tacoService = tacoService;
-    }
-
-    @GetMapping
-    public List<Taco> listarTacos() {
-        return tacoService.listarTacos();
-    }
-
-    @PostMapping
-    public Taco criarTaco(@RequestBody Taco taco) {
-        return tacoService.salvarTaco(taco);
-    }
 }

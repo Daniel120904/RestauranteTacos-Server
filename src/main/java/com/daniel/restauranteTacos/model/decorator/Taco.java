@@ -4,21 +4,28 @@ import com.daniel.restauranteTacos.model.ItemPedido;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "tacos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Taco implements ItemPedido {
+public abstract class Taco implements ItemPedido {
+
+    @Id
+    private String id;
+
     private String descricao;
     private double preco;
 
+    @Override
     public String getDescricao() {
-        return "";
+        return descricao;
     }
 
+    @Override
     public double getPreco() {
-        return 0;
+        return preco;
     }
 }

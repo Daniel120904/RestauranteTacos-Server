@@ -2,9 +2,8 @@ package com.daniel.restauranteTacos.repository;
 
 import com.daniel.restauranteTacos.model.decorator.Taco;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+@Repository
 public interface TacoRepository extends MongoRepository<Taco, String> {
-    List<Taco> findByDescricaoContaining(String desc);
 }

@@ -2,24 +2,31 @@ package com.daniel.restauranteTacos.service;
 
 import com.daniel.restauranteTacos.model.decorator.Taco;
 import com.daniel.restauranteTacos.repository.TacoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TacoService {
 
-    private final TacoRepository tacoRepo;
+    @Autowired
+    private TacoRepository tacoRepository;
 
-    public TacoService(TacoRepository tacoRepo) {
-        this.tacoRepo = tacoRepo;
+    public List<Taco> listarTodos() {
+        return tacoRepository.findAll();
     }
 
-    public List<Taco> listarTacos() {
-        return tacoRepo.findAll();
+    public Optional<Taco> buscarPorId(String id) {
+        return tacoRepository.findById(id);
     }
 
-    public Taco salvarTaco(Taco taco) {
-        return tacoRepo.save(taco);
+    public Taco salvar(Taco taco) {
+        return tacoRepository.save(taco);
+    }
+
+    public void deletar(String id) {
+        tacoRepository.deleteById(id);
     }
 }
