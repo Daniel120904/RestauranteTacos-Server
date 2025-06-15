@@ -20,8 +20,7 @@ public class PedidoModel {
     private String nomeCliente;
     private List<ItemPedido> itens;
     private double valorTotal;
-
-    private PagamentoModel pagamento; // 🔥 Adicionando o pagamento no pedido
+    private PagamentoModel pagamento;
 
     public void calcularValorTotal() {
         this.valorTotal = itens.stream()

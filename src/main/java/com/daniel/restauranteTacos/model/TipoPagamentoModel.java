@@ -6,19 +6,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-
-@Document(collection = "pagamentos")
+@Document(collection = "tipos_pagamento")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PagamentoModel {
+public class TipoPagamentoModel {
 
     @Id
     private String id;
-
-    private TipoPagamentoModel tipoPagamento;
-    private String status;
-    private LocalDateTime dataPagamento;
+    private String nome;
 }
 

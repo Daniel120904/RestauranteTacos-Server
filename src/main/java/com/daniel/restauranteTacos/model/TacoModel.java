@@ -16,7 +16,6 @@ public class TacoModel implements ItemPedido {
     private String id;
     private String descricao;
     private double preco;
-    private String categoria; // opcional
 
     @Override
     public String getDescricao() {
