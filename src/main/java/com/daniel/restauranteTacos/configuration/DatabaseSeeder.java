@@ -1,4 +1,4 @@
-package com.daniel.restauranteTacos;
+package com.daniel.restauranteTacos.configuration;
 
 import com.daniel.restauranteTacos.model.AcompanhamentoModel;
 import com.daniel.restauranteTacos.model.BebidaModel;

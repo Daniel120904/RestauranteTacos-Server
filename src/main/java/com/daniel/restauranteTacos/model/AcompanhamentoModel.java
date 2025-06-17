@@ -15,12 +15,12 @@ public class AcompanhamentoModel implements ItemPedido {
     @Id
     private String id;
 
-    private String nome;
+    private String descricao;
     private double preco;
 
     @Override
     public String getDescricao() {
-        return nome;
+        return descricao;
     }
 
     @Override

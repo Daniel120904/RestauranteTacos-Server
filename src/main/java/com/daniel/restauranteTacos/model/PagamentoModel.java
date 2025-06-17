@@ -18,7 +18,6 @@ public class PagamentoModel {
     private String id;
 
     private TipoPagamentoModel tipoPagamento;
-    private String status;
     private LocalDateTime dataPagamento;
 }
 

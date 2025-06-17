@@ -6,7 +6,6 @@ import com.daniel.restauranteTacos.repository.PagamentoRepository;
 import com.daniel.restauranteTacos.repository.TipoPagamentoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +23,6 @@ public class PagamentoService {
 
         PagamentoModel pagamento = new PagamentoModel();
         pagamento.setTipoPagamento(tipo);
-        pagamento.setStatus("Pendente");
         pagamento.setDataPagamento(LocalDateTime.now());
 
         return pagamentoRepository.save(pagamento);

@@ -14,12 +14,12 @@ public class BebidaModel implements ItemPedido {
     @Id
     private String id;
 
-    private String nome;
+    private String Descricao;
     private double preco;
 
     @Override
     public String getDescricao() {
-        return nome;
+        return Descricao;
     }
 
     @Override

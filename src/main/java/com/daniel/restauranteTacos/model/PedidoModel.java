@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.List;
 
 @Document(collection = "pedidos")
@@ -20,6 +19,7 @@ public class PedidoModel {
     private String nomeCliente;
     private List<ItemPedido> itens;
     private double valorTotal;
+
     private PagamentoModel pagamento;
 
     public void calcularValorTotal() {
@@ -28,4 +28,6 @@ public class PedidoModel {
                 .sum();
     }
 }
+
+
 
