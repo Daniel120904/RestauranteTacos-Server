@@ -37,11 +37,15 @@ public class PedidoController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/pagamento")
-    public ResponseEntity<PedidoModel> adicionarPagamento(@RequestBody PedidoPagamentoRequestDTO dto) {
-        PedidoModel pedido = pedidoService.adicionarPagamento(dto.getPedidoId(), dto.getTipoPagamentoId());
+    @PostMapping("/{id}/pagamento")
+    public ResponseEntity<PedidoModel> adicionarPagamento(
+            @PathVariable String id,
+            @RequestBody PedidoPagamentoRequestDTO dto) {
+
+        PedidoModel pedido = pedidoService.adicionarPagamento(id, dto.getTipoPagamentoId());
         return ResponseEntity.ok(pedido);
     }
+
 
 
 }

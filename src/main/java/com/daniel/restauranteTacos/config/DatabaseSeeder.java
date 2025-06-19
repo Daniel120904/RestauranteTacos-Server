@@ -1,4 +1,4 @@
-package com.daniel.restauranteTacos.configuration;
+package com.daniel.restauranteTacos.config;
 
 import com.daniel.restauranteTacos.model.AcompanhamentoModel;
 import com.daniel.restauranteTacos.model.BebidaModel;
@@ -67,6 +67,6 @@ public class DatabaseSeeder {
         ));
 
 
-        System.out.println("✅ Banco populado com sucesso!");
+        System.out.println("Banco populado com sucesso!");
     }
 }

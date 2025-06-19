@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/acompanhamento")
+@RequestMapping("/api/acompanhamentos")
 public class AcompanhamentoController {
 
     private final AcompanhamentoService service;
