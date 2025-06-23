@@ -6,9 +6,9 @@ import com.daniel.restauranteTacos.dto.PedidoResponseDTO;
 import com.daniel.restauranteTacos.model.PedidoModel;
 import com.daniel.restauranteTacos.service.PedidoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -16,8 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PedidoController {
 
-    @Autowired
-    private PedidoService pedidoService;
+    private final PedidoService pedidoService;
 
     @PostMapping
     public PedidoModel criarPedido(@RequestBody PedidoRequestDTO dto) {
@@ -25,7 +24,11 @@ public class PedidoController {
     }
 
     @GetMapping
-    public List<PedidoModel> listarPedidos() {return pedidoService.listarPedidos();}
+    public List<PedidoResponseDTO> listarPedidos() {
+        return pedidoService.listarPedidos().stream()
+                .map(pedidoService::converterParaResponse)
+                .toList();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<PedidoResponseDTO> buscarPorId(@PathVariable String id) {
@@ -40,13 +43,9 @@ public class PedidoController {
     @PostMapping("/{id}/pagamento")
     public ResponseEntity<PedidoModel> adicionarPagamento(
             @PathVariable String id,
-            @RequestBody PedidoPagamentoRequestDTO dto) {
-
+            @RequestBody PedidoPagamentoRequestDTO dto
+    ) {
         PedidoModel pedido = pedidoService.adicionarPagamento(id, dto.getTipoPagamentoId());
         return ResponseEntity.ok(pedido);
     }
-
-
-
 }
-

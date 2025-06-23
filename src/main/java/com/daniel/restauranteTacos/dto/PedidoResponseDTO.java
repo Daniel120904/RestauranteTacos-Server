@@ -8,17 +8,10 @@ import java.util.List;
 public class PedidoResponseDTO {
     private String id;
     private String nomeCliente;
-
     private List<String> tacos;
-    private List<String> acompanhamentos;
     private List<String> bebidas;
-
-    private Double precoTotal;
-
+    private List<String> acompanhamentos;
+    private double precoTotal;
     private String tipoPagamento;
     private LocalDateTime dataPagamento;
 }
-
-
-
-

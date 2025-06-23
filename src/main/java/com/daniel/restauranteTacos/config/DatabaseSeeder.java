@@ -4,10 +4,7 @@ import com.daniel.restauranteTacos.model.AcompanhamentoModel;
 import com.daniel.restauranteTacos.model.BebidaModel;
 import com.daniel.restauranteTacos.model.TacoModel;
 import com.daniel.restauranteTacos.model.TipoPagamentoModel;
-import com.daniel.restauranteTacos.repository.AcompanhamentoRepository;
-import com.daniel.restauranteTacos.repository.BebidaRepository;
-import com.daniel.restauranteTacos.repository.TacoRepository;
-import com.daniel.restauranteTacos.repository.TipoPagamentoRepository;
+import com.daniel.restauranteTacos.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import jakarta.annotation.PostConstruct;
@@ -28,14 +25,22 @@ public class DatabaseSeeder {
     @Autowired
     private TipoPagamentoRepository tipoPagamentoRepository;
 
+    @Autowired
+    private PagamentoRepository pagamentoRepository;
+
+    @Autowired
+    private PedidoRepository pedidoRepository;
+
     @PostConstruct
     public void seedDatabase() {
 
-        // ⚠️ Limpar o banco (opcional para testes)
         tacoRepository.deleteAll();
         bebidaRepository.deleteAll();
         acompanhamentoRepository.deleteAll();
         tipoPagamentoRepository.deleteAll();
+        pagamentoRepository.deleteAll();
+        pedidoRepository.deleteAll();
+
 
         tacoRepository.saveAll(List.of(
                 new TacoModel(null, "Taco de Carne", 10.0),
